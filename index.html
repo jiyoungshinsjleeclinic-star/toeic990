@@ -23,6 +23,7 @@ h1{font-size:22px;margin:0}.sub{font-size:12px;color:var(--muted);margin-top:4px
 .loading{text-align:center;padding:32px 10px}.spinner{font-size:34px}.notice{background:#fff7ed;border:1px solid #fed7aa;border-radius:13px;padding:11px;font-size:12px;line-height:1.5;color:#7c2d12;margin-bottom:12px}
 .modal{position:fixed;inset:0;background:rgba(15,23,42,.5);display:flex;align-items:flex-end;justify-content:center;z-index:50}.modalbox{width:min(600px,100%);background:#fff;border-radius:22px 22px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom))}.modalword{font-size:30px;font-weight:900}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .footer{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:8px 10px calc(8px + env(safe-area-inset-bottom));font-size:10px;color:var(--muted);text-align:center}
+.micstatus{margin-top:8px;font-size:12px;color:#64748b;text-align:center;line-height:1.45}
 </style>
 </head>
 <body>
@@ -144,15 +145,37 @@ function speak(t){if(!('speechSynthesis'in window))return alert('이 브라우�
 function star(id){state.stars=state.stars||[];state.stars=state.stars.includes(id)?state.stars.filter(x=>x!==id):[...state.stars,id];saveState();renderWord()}
 function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function clickable(s){return String(s).split(/(\s+)/).map(t=>{if(/^\s+$/.test(t))return t;let c=t.replace(/^[^A-Za-z]+|[^A-Za-z'-]+$/g,'');if(!c)return esc(t);let p=t.indexOf(c);return esc(t.slice(0,p))+`<span class="wordtoken" onclick="openModal('${c.replace(/'/g,"\\'")}')">${esc(c)}</span>`+esc(t.slice(p+c.length))}).join('')}
+
+function getRecognition(){return window.SpeechRecognition||window.webkitSpeechRecognition||null;}
+function normSpeech(s){return String(s||'').toLowerCase().replace(/[^a-z0-9' -]/g,'').replace(/\s+/g,' ').trim();}
+function practiceWordSpeaking(){
+ const target=TODAY[idx]?.w||''; const R=getRecognition();
+ if(!R){speak(target);wordSpeakCount[idx]=Math.min(3,(wordSpeakCount[idx]||0)+1);renderWord();setTimeout(()=>{let e=document.getElementById('wordMicStatus');if(e)e.textContent='음성인식 미지원: 수동 말하기 횟수로 기록했어요.'},30);return;}
+ const r=new R();r.lang='en-US';r.interimResults=false;r.maxAlternatives=3;
+ let el=document.getElementById('wordMicStatus');if(el)el.textContent='🎤 듣고 있어요. 단어를 영어로 말해 주세요.';
+ r.onresult=e=>{let g=[...e.results[0]].map(x=>normSpeech(x.transcript)),t=normSpeech(target),ok=g.some(x=>x===t||x.includes(t)||t.includes(x));if(ok){wordSpeakCount[idx]=Math.min(3,(wordSpeakCount[idx]||0)+1);renderWord();setTimeout(()=>{let z=document.getElementById('wordMicStatus');if(z)z.textContent='✅ 인식 성공 · '+(wordSpeakCount[idx]||0)+'/3'},30)}else if(el)el.textContent='다시 말해보세요. 인식: '+(g[0]||'');};
+ r.onerror=()=>{speak(target);wordSpeakCount[idx]=Math.min(3,(wordSpeakCount[idx]||0)+1);renderWord();};
+ try{r.start()}catch(e){speak(target);wordSpeakCount[idx]=Math.min(3,(wordSpeakCount[idx]||0)+1);renderWord();}
+}
+function practiceSentenceSpeaking(){
+ const target=practiceSentence(TODAY[idx]); const R=getRecognition();
+ if(!R){speak(target);sentenceSpeakCount[idx]=Math.min(3,(sentenceSpeakCount[idx]||0)+1);renderWord();setTimeout(()=>{let e=document.getElementById('sentenceMicStatus');if(e)e.textContent='문장 음성인식 미지원: 수동 말하기 횟수로 기록했어요.'},30);return;}
+ const r=new R();r.lang='en-US';r.interimResults=false;r.maxAlternatives=3;
+ let el=document.getElementById('sentenceMicStatus');if(el)el.textContent='🎤 듣고 있어요. 문장을 따라 말해 주세요.';
+ r.onresult=e=>{let guess=normSpeech(e.results[0][0].transcript),t=normSpeech(target),tw=t.split(' ').filter(Boolean),gw=new Set(guess.split(' ').filter(Boolean)),ratio=tw.length?tw.filter(w=>gw.has(w)).length/tw.length:0;if(ratio>=0.6){sentenceSpeakCount[idx]=Math.min(3,(sentenceSpeakCount[idx]||0)+1);renderWord();setTimeout(()=>{let z=document.getElementById('sentenceMicStatus');if(z)z.textContent='✅ 문장 인식 성공 · '+(sentenceSpeakCount[idx]||0)+'/3'},30)}else if(el)el.textContent='조금 더 천천히 다시 말해보세요. 인식: '+guess;};
+ r.onerror=()=>{speak(target);sentenceSpeakCount[idx]=Math.min(3,(sentenceSpeakCount[idx]||0)+1);renderWord();};
+ try{r.start()}catch(e){speak(target);sentenceSpeakCount[idx]=Math.min(3,(sentenceSpeakCount[idx]||0)+1);renderWord();}
+}
+
 function renderWord(){
  const w=TODAY[idx], starred=(state.stars||[]).includes(w.id), e=practiceSentence(w);
  document.getElementById('dayLabel').textContent=`DAY ${dayNum()} · 신규 5단어 · ${idx+1}/5`;
  document.getElementById('bar').style.width=((idx+1)*20)+'%';
  document.getElementById('wordArea').innerHTML=`
  <div class="wordrow"><div><div class="word">${esc(w.w)}</div><div class="meta">${w.ipa?esc(w.ipa)+' · ':''}${w.cefr?esc(w.cefr):''}${w.source==='curated'?' · TOEIC 핵심':''}</div></div><button class="star" onclick="star(${w.id})">${starred?'⭐':'☆'}</button></div>
- <button class="btn primary" onclick='speak(${JSON.stringify(w.w)})'>🔊 단어 듣기</button>
- <button class="btn green" onclick="wordSpeakCount[${idx}]=Math.min(3,(wordSpeakCount[${idx}]||0)+1);speak(${JSON.stringify(w.w)});renderWord()">🎤 단어 3번 말하기 · ${wordSpeakCount[idx]||0}/3 ${(wordSpeakCount[idx]||0)>=3?'🎉':''}</button>
- ${revealed[idx]?`<div class="meaning"><b>🇰🇷 ${esc(w.m)}</b><div class="example"><div>${clickable(e)}</div><button class="btn soft" onclick='speak(${JSON.stringify(e)})'>🔊 ${w.e?'예문':'연습 문장'} 듣기</button><div class="ko">${esc(practiceKorean(w))}</div>${w.source!=='curated'?`<button class="btn" onclick="activeLookup=${JSON.stringify(w.w)};naverDict()">📘 사전에서 실제 예문 보기</button>`:''}</div><div class="speakbox"><b>🗣️ 매일 말하기</b><div class="small">${w.e?'예문을':'연습 문장을'} 듣고 3번 따라 말하세요.</div><button class="btn green" onclick="sentenceSpeakCount[${idx}]=Math.min(3,(sentenceSpeakCount[${idx}]||0)+1);speak(${JSON.stringify(e)});renderWord()">🎤 문장 3번 말하기 · ${sentenceSpeakCount[idx]||0}/3 ${(sentenceSpeakCount[idx]||0)>=3?'🎉':''}</button></div></div>`:`<button class="btn soft" onclick="revealed[${idx}]=true;renderWord()">뜻 보기 👀</button>`}
+ <button class="btn primary" onclick="speak(TODAY[idx].w)">🔊 단어 듣기</button>
+ <button class="btn green" onclick="practiceWordSpeaking()">🎤 단어 3번 말하기 · ${wordSpeakCount[idx]||0}/3 ${(wordSpeakCount[idx]||0)>=3?'🎉':''}</button><div id="wordMicStatus" class="micstatus">버튼을 누른 뒤 영어로 말해보세요.</div>
+ ${revealed[idx]?`<div class="meaning"><b>🇰🇷 ${esc(w.m)}</b><div class="example"><div>${clickable(e)}</div><button class="btn soft" onclick="speak(practiceSentence(TODAY[idx]))">🔊 ${w.e?'예문':'연습 문장'} 듣기</button><div class="ko">${esc(practiceKorean(w))}</div>${w.source!=='curated'?`<button class="btn" onclick="activeLookup=${JSON.stringify(w.w)};naverDict()">📘 사전에서 실제 예문 보기</button>`:''}</div><div class="speakbox"><b>🗣️ 매일 말하기</b><div class="small">${w.e?'예문을':'연습 문장을'} 듣고 3번 따라 말하세요.</div><button class="btn green" onclick="practiceSentenceSpeaking()">🎤 문장 3번 말하기 · ${sentenceSpeakCount[idx]||0}/3 ${(sentenceSpeakCount[idx]||0)>=3?'🎉':''}</button><div id="sentenceMicStatus" class="micstatus">예문을 듣고 버튼을 누른 뒤 따라 말해보세요.</div></div></div>`:`<button class="btn soft" onclick="revealed[${idx}]=true;renderWord()">뜻 보기 👀</button>`}
  <div class="nav"><button class="btn" ${idx===0?'disabled':''} onclick="idx--;renderWord()">← 이전</button><button class="btn primary" onclick="${idx<4?'idx++;renderWord()':'startQuiz()'}">${idx<4?'다음 →':'퀴즈 →'}</button></div>`;
 }
 function reviewIds(){
