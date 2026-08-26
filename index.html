@@ -3,206 +3,180 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<meta name="theme-color" content="#2563eb"/>
-<title>Olivia TOEIC 990 · 하루 5분</title>
+<meta name="theme-color" content="#1d4ed8"/>
+<title>Olivia TOEIC 990 · 400일</title>
 <style>
-:root{--blue:#2563eb;--green:#16a34a;--bg:#f6f8fc;--ink:#172033;--muted:#6b7280;--card:#fff;--line:#e5e7eb}
+:root{--blue:#1d4ed8;--green:#15803d;--bg:#f5f7fb;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--card:#fff;--gold:#b7791f}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR","Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
-.wrap{max-width:560px;margin:auto;padding:18px 16px 90px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.brand h1{font-size:22px;margin:0}.brand p{margin:3px 0 0;color:var(--muted);font-size:13px}
-.streak{background:#fff1e8;border:1px solid #fed7aa;border-radius:999px;padding:8px 10px;font-weight:700;font-size:13px}
-.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}.tab{border:0;background:#e9eef9;padding:11px 6px;border-radius:12px;font-weight:700}.tab.active{background:var(--blue);color:#fff}
-.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 5px 18px rgba(15,23,42,.05)}
-.day{font-weight:800;color:var(--blue);font-size:14px}.progress{height:8px;background:#e8edf5;border-radius:20px;overflow:hidden;margin:10px 0 22px}.progress i{display:block;height:100%;background:var(--blue)}
-.wordrow{display:flex;justify-content:space-between;gap:8px;align-items:start}.word{font-size:34px;font-weight:900;line-height:1.15;word-break:break-word}.star{border:0;background:#fff7cc;border-radius:12px;font-size:20px;padding:7px 10px}
-.btn{width:100%;padding:14px 13px;border-radius:14px;border:1px solid var(--line);background:#fff;font-weight:800;font-size:15px;margin-top:10px}
-.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}.btn.green{background:#eaf8ef;color:#147a37;border-color:#b8e7c6}.btn.soft{background:#f3f6fb}
-.meaning{margin-top:14px;padding:16px;background:#eff6ff;border-radius:15px}.meaning b{font-size:18px}.example{margin-top:15px;padding:14px;background:#f9fafb;border-radius:14px;line-height:1.55}.ko{color:#526071;margin-top:6px}
-.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.hidden{display:none!important}
-.quizq{font-weight:800;font-size:18px;margin-bottom:12px}.choice{display:block;width:100%;text-align:left;padding:13px;margin:8px 0;border:1px solid var(--line);border-radius:12px;background:#fff}.choice.ok{background:#eaf8ef;border-color:#62c87a}.choice.bad{background:#fff1f2;border-color:#fb7185}
-.small{font-size:13px;color:var(--muted);line-height:1.55}.history{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:12px}.d{background:#eef2f7;border-radius:10px;text-align:center;padding:8px 2px;font-size:11px}.d.done{background:#dcfce7;color:#166534;font-weight:800}.reviewItem{padding:13px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}.reviewItem b{font-size:17px}
-.footer{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:9px 12px calc(9px + env(safe-area-inset-bottom));font-size:11px;color:var(--muted);text-align:center}
-.micstatus{margin-top:8px;font-size:13px;text-align:center;color:var(--muted)}
-
-.wordtoken{display:inline-block;border-bottom:1px dashed #94a3b8;cursor:pointer;padding:0 1px}
-.wordtoken:active{background:#dbeafe}
-.speakbox{margin-top:14px;padding:14px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:14px}
-.speakbox b{display:block;margin-bottom:6px}
-.modal{position:fixed;inset:0;background:rgba(15,23,42,.5);display:flex;align-items:flex-end;justify-content:center;z-index:9999}
-.modalbox{width:min(560px,100%);background:white;border-radius:22px 22px 0 0;padding:20px 18px calc(22px + env(safe-area-inset-bottom));box-shadow:0 -10px 30px rgba(0,0,0,.15)}
-.modalword{font-size:30px;font-weight:900;margin-bottom:8px}
-.modalactions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-
+.wrap{max-width:600px;margin:auto;padding:18px 15px 100px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+h1{font-size:22px;margin:0}.sub{font-size:12px;color:var(--muted);margin-top:4px}.streak{white-space:nowrap;background:#fff3e6;border:1px solid #fed7aa;padding:8px 10px;border-radius:999px;font-size:13px;font-weight:800}
+.levelbox{margin:14px 0;background:#eef4ff;border:1px solid #cbdcff;padding:12px 14px;border-radius:15px;display:flex;justify-content:space-between;gap:10px;align-items:center}.levelname{font-weight:900;color:var(--blue)}.small{font-size:12px;color:var(--muted);line-height:1.5}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.tab{border:0;padding:11px 4px;border-radius:12px;background:#e8edf6;font-weight:800}.tab.active{background:var(--blue);color:white}
+.card{background:white;border:1px solid var(--line);border-radius:22px;padding:19px;box-shadow:0 5px 18px rgba(15,23,42,.05);margin-bottom:12px}
+.day{font-size:14px;font-weight:900;color:var(--blue)}.progress{height:8px;background:#e8edf5;border-radius:20px;overflow:hidden;margin:10px 0 20px}.progress i{display:block;height:100%;background:var(--blue)}
+.wordrow{display:flex;justify-content:space-between;align-items:start;gap:10px}.word{font-size:34px;font-weight:900;line-height:1.12;word-break:break-word}.meta{font-size:12px;color:var(--muted);margin-top:5px}.star{border:0;background:#fff5c2;padding:8px 11px;border-radius:12px;font-size:20px}
+.btn{width:100%;padding:13px;border-radius:14px;border:1px solid var(--line);background:#fff;font-weight:800;font-size:15px;margin-top:9px}.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}.btn.green{background:#ecfdf3;border-color:#bbf7d0;color:#166534}.btn.soft{background:#f8fafc}
+.meaning{margin-top:13px;padding:15px;background:#eff6ff;border-radius:15px}.meaning b{font-size:18px}.example{margin-top:13px;background:#f8fafc;padding:13px;border-radius:13px;line-height:1.55}.ko{color:#526071;margin-top:6px}.wordtoken{border-bottom:1px dashed #94a3b8;cursor:pointer}
+.speakbox{margin-top:12px;padding:13px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:14px}.nav{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}.hidden{display:none!important}
+.reviewbox{background:#fffbeb;border:1px solid #fde68a}.reviewtitle{font-weight:900;color:#92400e}.reviewItem{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px}.reviewItem:last-child{border-bottom:0}.history{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.d{text-align:center;padding:8px 2px;border-radius:10px;background:#eef2f7;font-size:11px}.d.done{background:#dcfce7;color:#166534;font-weight:800}
+.choice{display:block;width:100%;text-align:left;padding:13px;margin:8px 0;border:1px solid var(--line);border-radius:12px;background:white}.choice.ok{background:#dcfce7;border-color:#86efac}.choice.bad{background:#ffe4e6;border-color:#fda4af}
+.loading{text-align:center;padding:32px 10px}.spinner{font-size:34px}.notice{background:#fff7ed;border:1px solid #fed7aa;border-radius:13px;padding:11px;font-size:12px;line-height:1.5;color:#7c2d12;margin-bottom:12px}
+.modal{position:fixed;inset:0;background:rgba(15,23,42,.5);display:flex;align-items:flex-end;justify-content:center;z-index:50}.modalbox{width:min(600px,100%);background:#fff;border-radius:22px 22px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom))}.modalword{font-size:30px;font-weight:900}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.footer{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:8px 10px calc(8px + env(safe-area-inset-bottom));font-size:10px;color:var(--muted);text-align:center}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><div class="brand"><h1>🏆 TOEIC 990</h1><p>TOEIC 990 목표 · 매일 5단어 + 말하기</p></div><div class="streak" id="streak">🔥 0일</div></div>
-  <div class="tabs">
-    <button class="tab active" data-page="learn">오늘 학습</button>
-    <button class="tab" data-page="review">⭐ 복습</button>
-    <button class="tab" data-page="history">학습기록</button>
-  </div>
+  <div class="top"><div><h1>🏆 TOEIC 990</h1><div class="sub">2,000 단어·표현 · 하루 신규 5개 · 약 400일</div></div><div class="streak" id="streak">🔥 0일</div></div>
+  <div class="levelbox"><div><div class="levelname" id="levelName">학습 단계</div><div class="small" id="levelNote"></div></div><div><b id="bankCount">120</b><span class="small"> / 2000</span></div></div>
+  <div id="sourceNotice" class="notice hidden"></div>
+  <div class="tabs"><button class="tab active" data-page="learn">오늘 학습</button><button class="tab" data-page="review">⭐ 복습</button><button class="tab" data-page="history">학습기록</button></div>
 
   <section id="learnPage">
-    <div class="card" id="learnCard">
-      <div class="day" id="dayLabel"></div>
-      <div class="progress"><i id="bar"></i></div>
-      <div id="wordArea"></div>
+    <div class="card" id="loadingCard"><div class="loading"><div class="spinner">📚</div><b>2,000단어 학습은행 준비 중…</b><div class="small" style="margin-top:8px">첫 접속 때만 무료 오픈 사전 데이터를 불러옵니다.</div></div></div>
+    <div class="card hidden" id="learnCard">
+      <div class="day" id="dayLabel"></div><div class="progress"><i id="bar"></i></div><div id="wordArea"></div>
     </div>
+    <div class="card reviewbox hidden" id="dailyReviewCard"></div>
     <div class="card hidden" id="quizCard"></div>
   </section>
 
   <section id="reviewPage" class="hidden"><div class="card"><h2 style="margin-top:0">⭐ 복습 단어장</h2><div id="reviewList"></div></div></section>
-  <section id="historyPage" class="hidden"><div class="card"><h2 style="margin-top:0">📅 학습기록</h2><div id="historySummary"></div><div class="history" id="history7"></div><p class="small" style="margin-top:16px">학습기록은 이 휴대폰 브라우저에만 저장됩니다. 브라우저 데이터를 삭제하면 기록도 함께 삭제될 수 있습니다.</p></div></section>
+  <section id="historyPage" class="hidden"><div class="card"><h2 style="margin-top:0">📅 학습기록</h2><div id="historySummary"></div><div class="history" id="history7"></div><p class="small" style="margin-top:14px">학습기록은 현재 브라우저에 저장됩니다.</p></div></section>
 </div>
 
-<div id="wordModal" class="modal hidden" onclick="if(event.target.id==='wordModal')closeWordModal()">
-  <div class="modalbox">
-    <div class="small">예문 단어 검색</div>
-    <div class="modalword" id="modalWord"></div>
-    <button class="btn primary" onclick="speak(document.getElementById('modalWord').textContent)">🔊 이 단어 듣기</button>
-    <div class="modalactions">
-      <button class="btn" onclick="openNaverDict()">📘 네이버 사전</button>
-      <button class="btn" onclick="openGoogleSearch()">🔎 Google 검색</button>
-    </div>
-    <button class="btn soft" onclick="closeWordModal()">닫기</button>
-  </div>
+<div id="wordModal" class="modal hidden" onclick="if(event.target.id==='wordModal')closeModal()">
+ <div class="modalbox"><div class="small">단어 자세히 보기</div><div id="modalWord" class="modalword"></div><button class="btn primary" onclick="speak(activeLookup)">🔊 단어 듣기</button><div class="actions"><button class="btn" onclick="naverDict()">📘 네이버 사전</button><button class="btn" onclick="googleSearch()">🔎 검색</button></div><button class="btn soft" onclick="closeModal()">닫기</button></div>
 </div>
+<div class="footer">750→850→900→950+는 학습 난이도 구간 표시이며 공식 TOEIC 점수 환산표가 아닙니다.</div>
 
-<div class="footer">🔊 영어 듣기 · 🎤 단어/예문 말하기 · 📘 예문 단어 검색 · 매일 자동 업데이트</div>
 <script>
-const WORDS = [{"w": "agenda", "m": "안건, 의제", "e": "Please review the agenda before the meeting.", "k": "회의 전에 안건을 검토해 주세요."}, {"w": "attend", "m": "참석하다", "e": "All managers must attend the quarterly meeting.", "k": "모든 관리자는 분기 회의에 참석해야 합니다."}, {"w": "postpone", "m": "연기하다", "e": "We decided to postpone the presentation until Friday.", "k": "우리는 발표를 금요일로 연기하기로 했습니다."}, {"w": "reschedule", "m": "일정을 변경하다", "e": "Could you reschedule the interview for next week?", "k": "면접을 다음 주로 변경해 주실 수 있나요?"}, {"w": "minutes", "m": "회의록", "e": "The assistant will send the minutes by email.", "k": "비서가 회의록을 이메일로 보낼 것입니다."}, {"w": "participant", "m": "참가자", "e": "Each participant received a printed handout.", "k": "각 참가자는 인쇄된 자료를 받았습니다."}, {"w": "conference", "m": "회의, 학회", "e": "The annual conference will be held in Busan.", "k": "연례 회의는 부산에서 열립니다."}, {"w": "schedule", "m": "일정, 예정하다", "e": "The schedule for the training has been updated.", "k": "교육 일정이 업데이트되었습니다."}, {"w": "appointment", "m": "약속, 예약", "e": "I have an appointment with the client at three.", "k": "저는 3시에 고객과 약속이 있습니다."}, {"w": "confirm", "m": "확인하다", "e": "Please confirm your attendance by Wednesday.", "k": "수요일까지 참석 여부를 확인해 주세요."}, {"w": "remind", "m": "상기시키다", "e": "Let me remind you that the deadline is tomorrow.", "k": "마감이 내일이라는 점을 알려 드립니다."}, {"w": "notify", "m": "통지하다", "e": "We will notify all staff of the schedule change.", "k": "일정 변경을 전 직원에게 통지하겠습니다."}, {"w": "announce", "m": "발표하다", "e": "The director announced a new office policy.", "k": "이사가 새로운 사무실 정책을 발표했습니다."}, {"w": "announcement", "m": "공지, 발표", "e": "An announcement was posted on the bulletin board.", "k": "게시판에 공지가 붙었습니다."}, {"w": "attachment", "m": "첨부 파일", "e": "The report is included as an attachment.", "k": "보고서는 첨부 파일로 포함되어 있습니다."}, {"w": "forward", "m": "전달하다", "e": "Could you forward the email to the sales team?", "k": "그 이메일을 영업팀에 전달해 주시겠어요?"}, {"w": "reply", "m": "답장하다, 답장", "e": "She sent a quick reply to the customer.", "k": "그녀는 고객에게 빠른 답장을 보냈습니다."}, {"w": "regarding", "m": "~에 관하여", "e": "I am writing regarding your recent inquiry.", "k": "귀하의 최근 문의에 관하여 글을 씁니다."}, {"w": "recipient", "m": "수신자", "e": "The recipient of the message was on vacation.", "k": "그 메시지의 수신자는 휴가 중이었습니다."}, {"w": "urgent", "m": "긴급한", "e": "This is an urgent request from the head office.", "k": "이것은 본사의 긴급한 요청입니다."}, {"w": "available", "m": "이용 가능한, 시간이 있는", "e": "Is the conference room available at noon?", "k": "회의실이 정오에 이용 가능한가요?"}, {"w": "confidential", "m": "기밀의", "e": "All salary data is strictly confidential.", "k": "모든 급여 자료는 엄격히 기밀입니다."}, {"w": "distribute", "m": "배포하다", "e": "Please distribute the handouts to the guests.", "k": "손님들에게 자료를 배포해 주세요."}, {"w": "summarize", "m": "요약하다", "e": "Could you summarize the results in one page?", "k": "결과를 한 페이지로 요약해 주시겠어요?"}, {"w": "clarify", "m": "명확히 하다", "e": "Let me clarify the terms of the agreement.", "k": "계약 조건을 명확히 하겠습니다."}, {"w": "discuss", "m": "논의하다", "e": "We will discuss the budget this afternoon.", "k": "우리는 오늘 오후에 예산을 논의할 것입니다."}, {"w": "agree", "m": "동의하다", "e": "Both sides agree on the delivery date.", "k": "양측은 배송 날짜에 동의합니다."}, {"w": "suggestion", "m": "제안", "e": "Her suggestion improved the whole process.", "k": "그녀의 제안이 전체 과정을 개선했습니다."}, {"w": "proposal", "m": "제안서", "e": "The client accepted our project proposal.", "k": "고객이 우리 프로젝트 제안서를 수락했습니다."}, {"w": "deadline", "m": "기한", "e": "The deadline for the draft is Monday morning.", "k": "초안 기한은 월요일 오전입니다."}, {"w": "submit", "m": "제출하다", "e": "Please submit your expense report by Friday.", "k": "금요일까지 경비 보고서를 제출해 주세요."}, {"w": "revise", "m": "수정하다", "e": "We need to revise the slides before the demo.", "k": "시연 전에 슬라이드를 수정해야 합니다."}, {"w": "draft", "m": "초안", "e": "Send me a draft of the contract today.", "k": "오늘 계약서 초안을 보내 주세요."}, {"w": "handout", "m": "배포 자료", "e": "The handout explains each step clearly.", "k": "배포 자료는 각 단계를 명확히 설명합니다."}, {"w": "venue", "m": "장소", "e": "The venue for the workshop has changed.", "k": "워크숍 장소가 변경되었습니다."}, {"w": "attendance", "m": "참석, 출석", "e": "Attendance at the safety session is required.", "k": "안전 교육 참석은 필수입니다."}, {"w": "convenient", "m": "편리한", "e": "Choose a time that is convenient for you.", "k": "편리한 시간을 선택해 주세요."}, {"w": "tentative", "m": "임시의, 잠정적인", "e": "The date is tentative until the client replies.", "k": "고객이 답할 때까지 날짜는 잠정적입니다."}, {"w": "arrange", "m": "준비하다, 마련하다", "e": "I will arrange a car for the visitors.", "k": "방문객을 위해 차를 마련하겠습니다."}, {"w": "coordinate", "m": "조정하다", "e": "She coordinates schedules for three departments.", "k": "그녀는 세 부서의 일정을 조정합니다."}, {"w": "update", "m": "갱신하다, 최신 정보", "e": "Please update the calendar after the call.", "k": "통화 후 달력을 갱신해 주세요."}, {"w": "reminder", "m": "알림", "e": "A reminder was sent one hour before the call.", "k": "통화 한 시간 전에 알림이 발송되었습니다."}, {"w": "follow up", "m": "후속 조치하다", "e": "I will follow up with the supplier tomorrow.", "k": "내일 공급업체에 후속 연락을 하겠습니다."}, {"w": "brief", "m": "간단한, 요약 보고하다", "e": "He gave a brief update on the project.", "k": "그는 프로젝트에 대해 간단한 보고를 했습니다."}, {"w": "consensus", "m": "합의", "e": "The team reached a consensus on the design.", "k": "팀은 디자인에 대해 합의에 이르렀습니다."}, {"w": "extension", "m": "내선 번호, 연장", "e": "You can reach me at extension 204.", "k": "내선 204번으로 저에게 연락할 수 있습니다."}, {"w": "transfer", "m": "연결하다, 이동하다", "e": "Let me transfer your call to accounting.", "k": "회계부로 전화를 연결해 드리겠습니다."}, {"w": "promptly", "m": "즉시, 정확히", "e": "The session will begin promptly at nine.", "k": "세션은 정확히 9시에 시작됩니다."}, {"w": "upcoming", "m": "다가오는", "e": "Details of the upcoming event are attached.", "k": "다가오는 행사의 세부 사항이 첨부되어 있습니다."}, {"w": "overview", "m": "개요", "e": "The first slide gives an overview of sales.", "k": "첫 슬라이드는 매출 개요를 보여 줍니다."}, {"w": "highlight", "m": "강조하다", "e": "The report highlights customer feedback.", "k": "보고서는 고객 의견을 강조합니다."}, {"w": "objective", "m": "목표", "e": "Our main objective is to reduce delays.", "k": "우리의 주요 목표는 지연을 줄이는 것입니다."}, {"w": "priority", "m": "우선 사항", "e": "Safety training is our top priority.", "k": "안전 교육이 우리의 최우선 사항입니다."}, {"w": "timely", "m": "시기적절한", "e": "Thank you for your timely response.", "k": "시기적절한 답변에 감사드립니다."}, {"w": "notice", "m": "통지, 알아차리다", "e": "Employees received two weeks' notice.", "k": "직원들은 2주 전에 통지를 받았습니다."}, {"w": "inquiry", "m": "문의", "e": "We received an inquiry about bulk orders.", "k": "우리는 대량 주문에 대한 문의를 받았습니다."}, {"w": "respond", "m": "응답하다", "e": "Please respond to the client within a day.", "k": "하루 안에 고객에게 응답해 주세요."}, {"w": "verify", "m": "확인하다, 검증하다", "e": "Please verify the figures before printing.", "k": "인쇄 전에 수치를 확인해 주세요."}, {"w": "signature", "m": "서명", "e": "The form requires a manager's signature.", "k": "그 양식은 관리자의 서명이 필요합니다."}, {"w": "supervisor", "m": "관리자, 상사", "e": "Ask your supervisor to approve the request.", "k": "요청 승인을 상사에게 요청하세요."}, {"w": "applicant", "m": "지원자", "e": "Every applicant must submit two references.", "k": "모든 지원자는 두 개의 추천서를 제출해야 합니다."}, {"w": "resume", "m": "이력서", "e": "Please attach your resume to the email.", "k": "이메일에 이력서를 첨부해 주세요."}, {"w": "candidate", "m": "후보자", "e": "The strongest candidate has ten years of experience.", "k": "가장 유력한 후보자는 10년의 경력이 있습니다."}, {"w": "interview", "m": "면접", "e": "The interview will last about thirty minutes.", "k": "면접은 약 30분 정도 걸릴 것입니다."}, {"w": "recruit", "m": "채용하다", "e": "We plan to recruit five engineers this year.", "k": "우리는 올해 엔지니어 다섯 명을 채용할 계획입니다."}, {"w": "hire", "m": "고용하다", "e": "The company hired a new safety officer.", "k": "회사는 새 안전 담당자를 고용했습니다."}, {"w": "qualification", "m": "자격, 자격 요건", "e": "She has all the qualifications for the role.", "k": "그녀는 그 직무의 모든 자격을 갖추고 있습니다."}, {"w": "qualified", "m": "자격을 갖춘", "e": "Only qualified applicants will be contacted.", "k": "자격을 갖춘 지원자에게만 연락드립니다."}, {"w": "experience", "m": "경험, 경력", "e": "Sales experience is preferred but not required.", "k": "영업 경력이 우대되지만 필수는 아닙니다."}, {"w": "reference", "m": "추천서, 참고", "e": "His former manager wrote a strong reference.", "k": "그의 전 관리자가 강력한 추천서를 써 주었습니다."}, {"w": "position", "m": "직위, 자리", "e": "The position reports to the regional director.", "k": "그 직위는 지역 이사에게 보고합니다."}, {"w": "vacancy", "m": "공석", "e": "There is a vacancy in the accounting team.", "k": "회계팀에 공석이 있습니다."}, {"w": "promotion", "m": "승진, 판촉", "e": "She earned a promotion after two years.", "k": "그녀는 2년 후 승진했습니다."}, {"w": "resign", "m": "사직하다", "e": "The assistant resigned for personal reasons.", "k": "그 비서는 개인적인 이유로 사직했습니다."}, {"w": "retire", "m": "은퇴하다", "e": "Mr. Lee will retire at the end of June.", "k": "이 씨는 6월 말에 은퇴할 것입니다."}, {"w": "employee", "m": "직원", "e": "Each employee receives an annual review.", "k": "각 직원은 연간 평가를 받습니다."}, {"w": "employer", "m": "고용주", "e": "The employer covers half of the tuition.", "k": "고용주가 수업료의 절반을 부담합니다."}, {"w": "staff", "m": "직원들", "e": "The entire staff attended the workshop.", "k": "전 직원이 워크숍에 참석했습니다."}, {"w": "personnel", "m": "인사, 직원", "e": "Contact personnel about your benefits.", "k": "복지에 관해서는 인사부에 문의하세요."}, {"w": "payroll", "m": "급여 대장", "e": "Payroll is processed on the 25th.", "k": "급여는 25일에 처리됩니다."}, {"w": "salary", "m": "급여", "e": "The salary depends on your experience.", "k": "급여는 경력에 따라 결정됩니다."}, {"w": "wage", "m": "임금", "e": "Hourly wages will rise next quarter.", "k": "시간당 임금이 다음 분기에 인상됩니다."}, {"w": "raise", "m": "인상, 올리다", "e": "He received a five percent raise.", "k": "그는 5퍼센트 인상을 받았습니다."}, {"w": "bonus", "m": "보너스", "e": "The year-end bonus was announced today.", "k": "연말 보너스가 오늘 발표되었습니다."}, {"w": "benefits", "m": "복리후생", "e": "Our benefits include dental insurance.", "k": "우리 복리후생에는 치과 보험이 포함됩니다."}, {"w": "insurance", "m": "보험", "e": "Health insurance starts after 30 days.", "k": "건강 보험은 30일 후에 시작됩니다."}, {"w": "overtime", "m": "초과 근무", "e": "Overtime must be approved in advance.", "k": "초과 근무는 미리 승인받아야 합니다."}, {"w": "shift", "m": "근무 교대", "e": "The night shift begins at ten.", "k": "야간 근무는 10시에 시작합니다."}, {"w": "leave", "m": "휴가", "e": "She is on maternity leave until August.", "k": "그녀는 8월까지 출산 휴가 중입니다."}, {"w": "vacation", "m": "휴가", "e": "Employees get fifteen vacation days.", "k": "직원들은 15일의 휴가를 받습니다."}, {"w": "absence", "m": "결근, 부재", "e": "Please report any absence to your team lead.", "k": "결근은 팀장에게 보고해 주세요."}, {"w": "orientation", "m": "오리엔테이션", "e": "Orientation is held every Monday morning.", "k": "오리엔테이션은 매주 월요일 오전에 열립니다."}, {"w": "workshop", "m": "워크숍", "e": "The workshop covers customer service skills.", "k": "그 워크숍은 고객 서비스 기술을 다룹니다."}, {"w": "seminar", "m": "세미나", "e": "A seminar on tax law will be offered.", "k": "세법에 관한 세미나가 제공될 것입니다."}, {"w": "instructor", "m": "강사", "e": "The instructor has worked in logistics.", "k": "그 강사는 물류 분야에서 일한 경험이 있습니다."}, {"w": "skill", "m": "기술, 능력", "e": "Communication skills are essential here.", "k": "여기서는 의사소통 능력이 필수적입니다."}, {"w": "performance", "m": "성과, 실적", "e": "Her performance exceeded expectations.", "k": "그녀의 성과는 기대를 넘었습니다."}, {"w": "evaluation", "m": "평가", "e": "The evaluation takes place every December.", "k": "평가는 매년 12월에 진행됩니다."}, {"w": "feedback", "m": "의견, 피드백", "e": "Managers give feedback after each project.", "k": "관리자는 각 프로젝트 후 피드백을 줍니다."}, {"w": "probation", "m": "수습 기간", "e": "The probation period lasts three months.", "k": "수습 기간은 3개월간 지속됩니다."}, {"w": "contractor", "m": "계약직, 하청업자", "e": "An outside contractor installed the system.", "k": "외부 하청업자가 그 시스템을 설치했습니다."}, {"w": "mandatory", "m": "의무적인", "e": "Safety training is mandatory for all staff.", "k": "안전 교육은 전 직원에게 의무적입니다."}, {"w": "policy", "m": "정책, 방침", "e": "Our refund policy changed last month.", "k": "우리 환불 정책이 지난달 변경되었습니다."}, {"w": "regulation", "m": "규정", "e": "New safety regulations take effect soon.", "k": "새 안전 규정이 곧 발효됩니다."}, {"w": "comply", "m": "준수하다", "e": "All factories must comply with the rules.", "k": "모든 공장은 규칙을 준수해야 합니다."}, {"w": "compliance", "m": "준수", "e": "The audit confirmed full compliance.", "k": "감사는 완전한 준수를 확인했습니다."}, {"w": "eligible", "m": "자격이 있는", "e": "You are eligible for the discount program.", "k": "귀하는 할인 프로그램 자격이 있습니다."}, {"w": "certificate", "m": "증명서", "e": "He earned a certificate in accounting.", "k": "그는 회계 분야 증명서를 취득했습니다."}, {"w": "dedicated", "m": "헌신적인", "e": "She is a dedicated team member.", "k": "그녀는 헌신적인 팀원입니다."}, {"w": "reliable", "m": "믿을 수 있는", "e": "We need a reliable delivery partner.", "k": "우리는 믿을 수 있는 배송 파트너가 필요합니다."}, {"w": "efficient", "m": "효율적인", "e": "The new process is far more efficient.", "k": "새 절차는 훨씬 더 효율적입니다."}, {"w": "productivity", "m": "생산성", "e": "Productivity rose after the training.", "k": "교육 후 생산성이 상승했습니다."}, {"w": "incentive", "m": "장려금, 유인", "e": "Sales incentives motivated the team.", "k": "영업 장려금이 팀에 동기를 부여했습니다."}, {"w": "award", "m": "상, 수여하다", "e": "The company awarded her a prize.", "k": "회사는 그녀에게 상을 수여했습니다."}, {"w": "workforce", "m": "노동력, 인력", "e": "Our workforce grew by twenty percent.", "k": "우리 인력이 20퍼센트 증가했습니다."}, {"w": "negotiate", "m": "협상하다", "e": "They negotiated a two-year contract.", "k": "그들은 2년 계약을 협상했습니다."}, {"w": "timesheet", "m": "근무 기록표", "e": "Submit your timesheet every Friday.", "k": "근무 기록표를 매주 금요일에 제출하세요."}, {"w": "workload", "m": "업무량", "e": "Her workload doubled in December.", "k": "그녀의 업무량은 12월에 두 배가 되었습니다."}, {"w": "responsibility", "m": "책임", "e": "Inventory is his main responsibility.", "k": "재고 관리가 그의 주요 책임입니다."}, {"w": "expertise", "m": "전문 지식", "e": "His expertise is in tax accounting.", "k": "그의 전문 지식은 세무 회계입니다."}];
+const CURATED = [{"w": "agenda", "m": "안건, 의제", "e": "Please review the agenda before the meeting.", "k": "회의 전에 안건을 검토해 주세요."}, {"w": "attend", "m": "참석하다", "e": "All managers must attend the quarterly meeting.", "k": "모든 관리자는 분기 회의에 참석해야 합니다."}, {"w": "postpone", "m": "연기하다", "e": "We decided to postpone the presentation until Friday.", "k": "우리는 발표를 금요일로 연기하기로 했습니다."}, {"w": "reschedule", "m": "일정을 변경하다", "e": "Could you reschedule the interview for next week?", "k": "면접을 다음 주로 변경해 주실 수 있나요?"}, {"w": "minutes", "m": "회의록", "e": "The assistant will send the minutes by email.", "k": "비서가 회의록을 이메일로 보낼 것입니다."}, {"w": "participant", "m": "참가자", "e": "Each participant received a printed handout.", "k": "각 참가자는 인쇄된 자료를 받았습니다."}, {"w": "conference", "m": "회의, 학회", "e": "The annual conference will be held in Busan.", "k": "연례 회의는 부산에서 열립니다."}, {"w": "schedule", "m": "일정, 예정하다", "e": "The schedule for the training has been updated.", "k": "교육 일정이 업데이트되었습니다."}, {"w": "appointment", "m": "약속, 예약", "e": "I have an appointment with the client at three.", "k": "저는 3시에 고객과 약속이 있습니다."}, {"w": "confirm", "m": "확인하다", "e": "Please confirm your attendance by Wednesday.", "k": "수요일까지 참석 여부를 확인해 주세요."}, {"w": "remind", "m": "상기시키다", "e": "Let me remind you that the deadline is tomorrow.", "k": "마감이 내일이라는 점을 알려 드립니다."}, {"w": "notify", "m": "통지하다", "e": "We will notify all staff of the schedule change.", "k": "일정 변경을 전 직원에게 통지하겠습니다."}, {"w": "announce", "m": "발표하다", "e": "The director announced a new office policy.", "k": "이사가 새로운 사무실 정책을 발표했습니다."}, {"w": "announcement", "m": "공지, 발표", "e": "An announcement was posted on the bulletin board.", "k": "게시판에 공지가 붙었습니다."}, {"w": "attachment", "m": "첨부 파일", "e": "The report is included as an attachment.", "k": "보고서는 첨부 파일로 포함되어 있습니다."}, {"w": "forward", "m": "전달하다", "e": "Could you forward the email to the sales team?", "k": "그 이메일을 영업팀에 전달해 주시겠어요?"}, {"w": "reply", "m": "답장하다, 답장", "e": "She sent a quick reply to the customer.", "k": "그녀는 고객에게 빠른 답장을 보냈습니다."}, {"w": "regarding", "m": "~에 관하여", "e": "I am writing regarding your recent inquiry.", "k": "귀하의 최근 문의에 관하여 글을 씁니다."}, {"w": "recipient", "m": "수신자", "e": "The recipient of the message was on vacation.", "k": "그 메시지의 수신자는 휴가 중이었습니다."}, {"w": "urgent", "m": "긴급한", "e": "This is an urgent request from the head office.", "k": "이것은 본사의 긴급한 요청입니다."}, {"w": "available", "m": "이용 가능한, 시간이 있는", "e": "Is the conference room available at noon?", "k": "회의실이 정오에 이용 가능한가요?"}, {"w": "confidential", "m": "기밀의", "e": "All salary data is strictly confidential.", "k": "모든 급여 자료는 엄격히 기밀입니다."}, {"w": "distribute", "m": "배포하다", "e": "Please distribute the handouts to the guests.", "k": "손님들에게 자료를 배포해 주세요."}, {"w": "summarize", "m": "요약하다", "e": "Could you summarize the results in one page?", "k": "결과를 한 페이지로 요약해 주시겠어요?"}, {"w": "clarify", "m": "명확히 하다", "e": "Let me clarify the terms of the agreement.", "k": "계약 조건을 명확히 하겠습니다."}, {"w": "discuss", "m": "논의하다", "e": "We will discuss the budget this afternoon.", "k": "우리는 오늘 오후에 예산을 논의할 것입니다."}, {"w": "agree", "m": "동의하다", "e": "Both sides agree on the delivery date.", "k": "양측은 배송 날짜에 동의합니다."}, {"w": "suggestion", "m": "제안", "e": "Her suggestion improved the whole process.", "k": "그녀의 제안이 전체 과정을 개선했습니다."}, {"w": "proposal", "m": "제안서", "e": "The client accepted our project proposal.", "k": "고객이 우리 프로젝트 제안서를 수락했습니다."}, {"w": "deadline", "m": "기한", "e": "The deadline for the draft is Monday morning.", "k": "초안 기한은 월요일 오전입니다."}, {"w": "submit", "m": "제출하다", "e": "Please submit your expense report by Friday.", "k": "금요일까지 경비 보고서를 제출해 주세요."}, {"w": "revise", "m": "수정하다", "e": "We need to revise the slides before the demo.", "k": "시연 전에 슬라이드를 수정해야 합니다."}, {"w": "draft", "m": "초안", "e": "Send me a draft of the contract today.", "k": "오늘 계약서 초안을 보내 주세요."}, {"w": "handout", "m": "배포 자료", "e": "The handout explains each step clearly.", "k": "배포 자료는 각 단계를 명확히 설명합니다."}, {"w": "venue", "m": "장소", "e": "The venue for the workshop has changed.", "k": "워크숍 장소가 변경되었습니다."}, {"w": "attendance", "m": "참석, 출석", "e": "Attendance at the safety session is required.", "k": "안전 교육 참석은 필수입니다."}, {"w": "convenient", "m": "편리한", "e": "Choose a time that is convenient for you.", "k": "편리한 시간을 선택해 주세요."}, {"w": "tentative", "m": "임시의, 잠정적인", "e": "The date is tentative until the client replies.", "k": "고객이 답할 때까지 날짜는 잠정적입니다."}, {"w": "arrange", "m": "준비하다, 마련하다", "e": "I will arrange a car for the visitors.", "k": "방문객을 위해 차를 마련하겠습니다."}, {"w": "coordinate", "m": "조정하다", "e": "She coordinates schedules for three departments.", "k": "그녀는 세 부서의 일정을 조정합니다."}, {"w": "update", "m": "갱신하다, 최신 정보", "e": "Please update the calendar after the call.", "k": "통화 후 달력을 갱신해 주세요."}, {"w": "reminder", "m": "알림", "e": "A reminder was sent one hour before the call.", "k": "통화 한 시간 전에 알림이 발송되었습니다."}, {"w": "follow up", "m": "후속 조치하다", "e": "I will follow up with the supplier tomorrow.", "k": "내일 공급업체에 후속 연락을 하겠습니다."}, {"w": "brief", "m": "간단한, 요약 보고하다", "e": "He gave a brief update on the project.", "k": "그는 프로젝트에 대해 간단한 보고를 했습니다."}, {"w": "consensus", "m": "합의", "e": "The team reached a consensus on the design.", "k": "팀은 디자인에 대해 합의에 이르렀습니다."}, {"w": "extension", "m": "내선 번호, 연장", "e": "You can reach me at extension 204.", "k": "내선 204번으로 저에게 연락할 수 있습니다."}, {"w": "transfer", "m": "연결하다, 이동하다", "e": "Let me transfer your call to accounting.", "k": "회계부로 전화를 연결해 드리겠습니다."}, {"w": "promptly", "m": "즉시, 정확히", "e": "The session will begin promptly at nine.", "k": "세션은 정확히 9시에 시작됩니다."}, {"w": "upcoming", "m": "다가오는", "e": "Details of the upcoming event are attached.", "k": "다가오는 행사의 세부 사항이 첨부되어 있습니다."}, {"w": "overview", "m": "개요", "e": "The first slide gives an overview of sales.", "k": "첫 슬라이드는 매출 개요를 보여 줍니다."}, {"w": "highlight", "m": "강조하다", "e": "The report highlights customer feedback.", "k": "보고서는 고객 의견을 강조합니다."}, {"w": "objective", "m": "목표", "e": "Our main objective is to reduce delays.", "k": "우리의 주요 목표는 지연을 줄이는 것입니다."}, {"w": "priority", "m": "우선 사항", "e": "Safety training is our top priority.", "k": "안전 교육이 우리의 최우선 사항입니다."}, {"w": "timely", "m": "시기적절한", "e": "Thank you for your timely response.", "k": "시기적절한 답변에 감사드립니다."}, {"w": "notice", "m": "통지, 알아차리다", "e": "Employees received two weeks' notice.", "k": "직원들은 2주 전에 통지를 받았습니다."}, {"w": "inquiry", "m": "문의", "e": "We received an inquiry about bulk orders.", "k": "우리는 대량 주문에 대한 문의를 받았습니다."}, {"w": "respond", "m": "응답하다", "e": "Please respond to the client within a day.", "k": "하루 안에 고객에게 응답해 주세요."}, {"w": "verify", "m": "확인하다, 검증하다", "e": "Please verify the figures before printing.", "k": "인쇄 전에 수치를 확인해 주세요."}, {"w": "signature", "m": "서명", "e": "The form requires a manager's signature.", "k": "그 양식은 관리자의 서명이 필요합니다."}, {"w": "supervisor", "m": "관리자, 상사", "e": "Ask your supervisor to approve the request.", "k": "요청 승인을 상사에게 요청하세요."}, {"w": "applicant", "m": "지원자", "e": "Every applicant must submit two references.", "k": "모든 지원자는 두 개의 추천서를 제출해야 합니다."}, {"w": "resume", "m": "이력서", "e": "Please attach your resume to the email.", "k": "이메일에 이력서를 첨부해 주세요."}, {"w": "candidate", "m": "후보자", "e": "The strongest candidate has ten years of experience.", "k": "가장 유력한 후보자는 10년의 경력이 있습니다."}, {"w": "interview", "m": "면접", "e": "The interview will last about thirty minutes.", "k": "면접은 약 30분 정도 걸릴 것입니다."}, {"w": "recruit", "m": "채용하다", "e": "We plan to recruit five engineers this year.", "k": "우리는 올해 엔지니어 다섯 명을 채용할 계획입니다."}, {"w": "hire", "m": "고용하다", "e": "The company hired a new safety officer.", "k": "회사는 새 안전 담당자를 고용했습니다."}, {"w": "qualification", "m": "자격, 자격 요건", "e": "She has all the qualifications for the role.", "k": "그녀는 그 직무의 모든 자격을 갖추고 있습니다."}, {"w": "qualified", "m": "자격을 갖춘", "e": "Only qualified applicants will be contacted.", "k": "자격을 갖춘 지원자에게만 연락드립니다."}, {"w": "experience", "m": "경험, 경력", "e": "Sales experience is preferred but not required.", "k": "영업 경력이 우대되지만 필수는 아닙니다."}, {"w": "reference", "m": "추천서, 참고", "e": "His former manager wrote a strong reference.", "k": "그의 전 관리자가 강력한 추천서를 써 주었습니다."}, {"w": "position", "m": "직위, 자리", "e": "The position reports to the regional director.", "k": "그 직위는 지역 이사에게 보고합니다."}, {"w": "vacancy", "m": "공석", "e": "There is a vacancy in the accounting team.", "k": "회계팀에 공석이 있습니다."}, {"w": "promotion", "m": "승진, 판촉", "e": "She earned a promotion after two years.", "k": "그녀는 2년 후 승진했습니다."}, {"w": "resign", "m": "사직하다", "e": "The assistant resigned for personal reasons.", "k": "그 비서는 개인적인 이유로 사직했습니다."}, {"w": "retire", "m": "은퇴하다", "e": "Mr. Lee will retire at the end of June.", "k": "이 씨는 6월 말에 은퇴할 것입니다."}, {"w": "employee", "m": "직원", "e": "Each employee receives an annual review.", "k": "각 직원은 연간 평가를 받습니다."}, {"w": "employer", "m": "고용주", "e": "The employer covers half of the tuition.", "k": "고용주가 수업료의 절반을 부담합니다."}, {"w": "staff", "m": "직원들", "e": "The entire staff attended the workshop.", "k": "전 직원이 워크숍에 참석했습니다."}, {"w": "personnel", "m": "인사, 직원", "e": "Contact personnel about your benefits.", "k": "복지에 관해서는 인사부에 문의하세요."}, {"w": "payroll", "m": "급여 대장", "e": "Payroll is processed on the 25th.", "k": "급여는 25일에 처리됩니다."}, {"w": "salary", "m": "급여", "e": "The salary depends on your experience.", "k": "급여는 경력에 따라 결정됩니다."}, {"w": "wage", "m": "임금", "e": "Hourly wages will rise next quarter.", "k": "시간당 임금이 다음 분기에 인상됩니다."}, {"w": "raise", "m": "인상, 올리다", "e": "He received a five percent raise.", "k": "그는 5퍼센트 인상을 받았습니다."}, {"w": "bonus", "m": "보너스", "e": "The year-end bonus was announced today.", "k": "연말 보너스가 오늘 발표되었습니다."}, {"w": "benefits", "m": "복리후생", "e": "Our benefits include dental insurance.", "k": "우리 복리후생에는 치과 보험이 포함됩니다."}, {"w": "insurance", "m": "보험", "e": "Health insurance starts after 30 days.", "k": "건강 보험은 30일 후에 시작됩니다."}, {"w": "overtime", "m": "초과 근무", "e": "Overtime must be approved in advance.", "k": "초과 근무는 미리 승인받아야 합니다."}, {"w": "shift", "m": "근무 교대", "e": "The night shift begins at ten.", "k": "야간 근무는 10시에 시작합니다."}, {"w": "leave", "m": "휴가", "e": "She is on maternity leave until August.", "k": "그녀는 8월까지 출산 휴가 중입니다."}, {"w": "vacation", "m": "휴가", "e": "Employees get fifteen vacation days.", "k": "직원들은 15일의 휴가를 받습니다."}, {"w": "absence", "m": "결근, 부재", "e": "Please report any absence to your team lead.", "k": "결근은 팀장에게 보고해 주세요."}, {"w": "orientation", "m": "오리엔테이션", "e": "Orientation is held every Monday morning.", "k": "오리엔테이션은 매주 월요일 오전에 열립니다."}, {"w": "workshop", "m": "워크숍", "e": "The workshop covers customer service skills.", "k": "그 워크숍은 고객 서비스 기술을 다룹니다."}, {"w": "seminar", "m": "세미나", "e": "A seminar on tax law will be offered.", "k": "세법에 관한 세미나가 제공될 것입니다."}, {"w": "instructor", "m": "강사", "e": "The instructor has worked in logistics.", "k": "그 강사는 물류 분야에서 일한 경험이 있습니다."}, {"w": "skill", "m": "기술, 능력", "e": "Communication skills are essential here.", "k": "여기서는 의사소통 능력이 필수적입니다."}, {"w": "performance", "m": "성과, 실적", "e": "Her performance exceeded expectations.", "k": "그녀의 성과는 기대를 넘었습니다."}, {"w": "evaluation", "m": "평가", "e": "The evaluation takes place every December.", "k": "평가는 매년 12월에 진행됩니다."}, {"w": "feedback", "m": "의견, 피드백", "e": "Managers give feedback after each project.", "k": "관리자는 각 프로젝트 후 피드백을 줍니다."}, {"w": "probation", "m": "수습 기간", "e": "The probation period lasts three months.", "k": "수습 기간은 3개월간 지속됩니다."}, {"w": "contractor", "m": "계약직, 하청업자", "e": "An outside contractor installed the system.", "k": "외부 하청업자가 그 시스템을 설치했습니다."}, {"w": "mandatory", "m": "의무적인", "e": "Safety training is mandatory for all staff.", "k": "안전 교육은 전 직원에게 의무적입니다."}, {"w": "policy", "m": "정책, 방침", "e": "Our refund policy changed last month.", "k": "우리 환불 정책이 지난달 변경되었습니다."}, {"w": "regulation", "m": "규정", "e": "New safety regulations take effect soon.", "k": "새 안전 규정이 곧 발효됩니다."}, {"w": "comply", "m": "준수하다", "e": "All factories must comply with the rules.", "k": "모든 공장은 규칙을 준수해야 합니다."}, {"w": "compliance", "m": "준수", "e": "The audit confirmed full compliance.", "k": "감사는 완전한 준수를 확인했습니다."}, {"w": "eligible", "m": "자격이 있는", "e": "You are eligible for the discount program.", "k": "귀하는 할인 프로그램 자격이 있습니다."}, {"w": "certificate", "m": "증명서", "e": "He earned a certificate in accounting.", "k": "그는 회계 분야 증명서를 취득했습니다."}, {"w": "dedicated", "m": "헌신적인", "e": "She is a dedicated team member.", "k": "그녀는 헌신적인 팀원입니다."}, {"w": "reliable", "m": "믿을 수 있는", "e": "We need a reliable delivery partner.", "k": "우리는 믿을 수 있는 배송 파트너가 필요합니다."}, {"w": "efficient", "m": "효율적인", "e": "The new process is far more efficient.", "k": "새 절차는 훨씬 더 효율적입니다."}, {"w": "productivity", "m": "생산성", "e": "Productivity rose after the training.", "k": "교육 후 생산성이 상승했습니다."}, {"w": "incentive", "m": "장려금, 유인", "e": "Sales incentives motivated the team.", "k": "영업 장려금이 팀에 동기를 부여했습니다."}, {"w": "award", "m": "상, 수여하다", "e": "The company awarded her a prize.", "k": "회사는 그녀에게 상을 수여했습니다."}, {"w": "workforce", "m": "노동력, 인력", "e": "Our workforce grew by twenty percent.", "k": "우리 인력이 20퍼센트 증가했습니다."}, {"w": "negotiate", "m": "협상하다", "e": "They negotiated a two-year contract.", "k": "그들은 2년 계약을 협상했습니다."}, {"w": "timesheet", "m": "근무 기록표", "e": "Submit your timesheet every Friday.", "k": "근무 기록표를 매주 금요일에 제출하세요."}, {"w": "workload", "m": "업무량", "e": "Her workload doubled in December.", "k": "그녀의 업무량은 12월에 두 배가 되었습니다."}, {"w": "responsibility", "m": "책임", "e": "Inventory is his main responsibility.", "k": "재고 관리가 그의 주요 책임입니다."}, {"w": "expertise", "m": "전문 지식", "e": "His expertise is in tax accounting.", "k": "그의 전문 지식은 세무 회계입니다."}];
 const START='2026-08-24';
-const KEY='olivia-toeic-990-v3';
-let state=load(), idx=0, speakingCount={}, revealed={}, quizIndex=0, quizScore=0, quizWrong=[];
-function load(){try{return JSON.parse(localStorage.getItem(KEY))||{done:[],stars:[],wrong:[]}}catch(e){return{done:[],stars:[],wrong:[]}}}
-function save(){localStorage.setItem(KEY,JSON.stringify(state))}
-function seoulDate(){return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())}
-function dayNum(){const a=new Date(START+'T00:00:00Z'),b=new Date(seoulDate()+'T00:00:00Z');return Math.max(1,Math.floor((b-a)/86400000)+1)}
+const KEY='olivia-toeic-990-long-v1';
+const BANK_KEY='olivia-toeic-990-bank-v1';
+const DICT_URL='https://raw.githubusercontent.com/jhseo1211/open-english-korean-dict/main/dict/words.json';
+let state=loadState(), BANK=[], TODAY=[], idx=0, revealed={}, wordSpeakCount={}, sentenceSpeakCount={}, quizIndex=0, quizScore=0, activeLookup='';
+
+function loadState(){try{return JSON.parse(localStorage.getItem(KEY))||{done:[],stars:[],wrong:[],seen:{}}}catch(e){return{done:[],stars:[],wrong:[],seen:{}}}}
+function saveState(){localStorage.setItem(KEY,JSON.stringify(state))}
+function dateKR(){return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())}
+function dayNum(){const a=new Date(START+'T00:00:00Z'),b=new Date(dateKR()+'T00:00:00Z');return Math.max(1,Math.floor((b-a)/86400000)+1)}
+function levelForDay(n){if(n<=100)return['750 목표 구간','기초·중급 핵심 어휘'];if(n<=200)return['850 목표 구간','중급·상급 업무 어휘'];if(n<=300)return['900 목표 구간','고급 독해·청취 어휘'];return['950+ 목표 구간','고난도 어휘·표현']}
 function seeded(seed){let x=seed>>>0;return()=>{x=(x*1664525+1013904223)>>>0;return x/4294967296}}
-function todayWords(){
-  let n=dayNum(), r=seeded(n*7919+20260824), ids=[...Array(WORDS.length).keys()];
-  for(let i=ids.length-1;i>0;i--){let j=Math.floor(r()*(i+1));[ids[i],ids[j]]=[ids[j],ids[i]]}
-  let priority=[...new Set([...(state.wrong||[]),...(state.stars||[])])].filter(x=>x>=0&&x<WORDS.length);
-  let out=[];
-  if(n>24) priority.forEach(i=>{if(out.length<2&&!out.includes(i))out.push(i)});
-  ids.forEach(i=>{if(out.length<5&&!out.includes(i))out.push(i)});
-  return out.slice(0,5).map(i=>({...WORDS[i],_i:i}));
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function normalizePos(p){p=(p||'').toLowerCase();if(p.includes('verb'))return'verb';if(p.includes('adj'))return'adjective';if(p.includes('adv'))return'adverb';return'noun'}
+function practiceSentence(w){
+ if(w.e)return w.e;
+ const x=w.w;
+ const p=normalizePos(w.pos);
+ if(p==='verb')return `Practice using "${x}" in a short workplace sentence.`;
+ if(p==='adjective')return `Describe a workplace situation using the word "${x}".`;
+ if(p==='adverb')return `Make a clear sentence using the word "${x}".`;
+ return `Use the word "${x}" in a sentence about work or daily life.`;
 }
-let TODAY=todayWords();
-
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-function exampleClickable(sentence){
-  return sentence.split(/(\s+)/).map(tok=>{
-    if(/^\s+$/.test(tok)) return tok;
-    const clean=tok.replace(/^[^A-Za-z]+|[^A-Za-z'-]+$/g,'');
-    if(!clean) return escapeHtml(tok);
-    const pos=tok.indexOf(clean), before=tok.slice(0,pos), after=tok.slice(pos+clean.length);
-    const safe=clean.replace(/'/g,"\\'");
-    return `${escapeHtml(before)}<span class="wordtoken" onclick="openWordModal('${safe}')">${escapeHtml(clean)}</span>${escapeHtml(after)}`;
-  }).join('');
+function practiceKorean(w){return w.k||'이 문장은 해당 단어를 직접 사용해 말해 보는 연습용 문장입니다.'}
+function tierScore(entry){
+ const cefr=(entry.cefr||'B1').toUpperCase(), rank=Number(entry.freq_rank)||99999;
+ const c={A1:0,A2:1,B1:2,B2:3,C1:4,C2:5}[cefr]??2;
+ return c*100000+Math.min(rank,99999);
 }
-let activeLookupWord='';
-function openWordModal(word){activeLookupWord=word;document.getElementById('modalWord').textContent=word;document.getElementById('wordModal').classList.remove('hidden')}
-function closeWordModal(){document.getElementById('wordModal').classList.add('hidden')}
-function openNaverDict(){if(activeLookupWord)window.open('https://en.dict.naver.com/#/search?query='+encodeURIComponent(activeLookupWord),'_blank','noopener')}
-function openGoogleSearch(){if(activeLookupWord)window.open('https://www.google.com/search?q='+encodeURIComponent(activeLookupWord+' meaning pronunciation'),'_blank','noopener')}
-let sentenceCount={};
-function sentenceSpeakPractice(){
-  let c=sentenceCount[idx]||0;
-  if(c<3){speak(TODAY[idx].e);sentenceCount[idx]=c+1;setTimeout(renderWord,120)}
+async function buildBank(){
+ try{
+   const cached=JSON.parse(localStorage.getItem(BANK_KEY)||'null');
+   if(cached&&cached.length===2000){BANK=cached;ready(false);return}
+ }catch(e){}
+ try{
+   const res=await fetch(DICT_URL,{cache:'force-cache'});
+   if(!res.ok)throw new Error('dictionary fetch failed');
+   const d=await res.json();
+   const curatedSet=new Set(CURATED.map(x=>x.w.toLowerCase()));
+   let arr=Object.entries(d).map(([word,v])=>({
+      w:word,m:v.meaning_ko||'',ipa:v.ipa||'',pos:v.pos||'',cefr:v.cefr||'B1',freq_rank:v.freq_rank||99999,source:'open-dict'
+   })).filter(x=>/^[A-Za-z][A-Za-z '-]{1,28}$/.test(x.w)&&x.m&& !curatedSet.has(x.w.toLowerCase()));
+   // Keep useful mainstream vocabulary: A2-C2, reasonably frequent, single words/short expressions.
+   arr=arr.filter(x=>['A2','B1','B2','C1','C2'].includes(String(x.cefr).toUpperCase()) && Number(x.freq_rank||99999)<=30000);
+   arr.sort((a,b)=>tierScore(a)-tierScore(b));
+   // Divide by progressive difficulty rather than blindly taking alphabetical items.
+   const groups={
+     low:arr.filter(x=>['A2','B1'].includes(String(x.cefr).toUpperCase())),
+     mid:arr.filter(x=>['B1','B2'].includes(String(x.cefr).toUpperCase())),
+     high:arr.filter(x=>['B2','C1'].includes(String(x.cefr).toUpperCase())),
+     top:arr.filter(x=>['C1','C2'].includes(String(x.cefr).toUpperCase()))
+   };
+   function pickUnique(group,n,used){
+      let out=[];for(const x of group){let k=x.w.toLowerCase();if(!used.has(k)){used.add(k);out.push(x);if(out.length>=n)break}}return out
+   }
+   let used=new Set(CURATED.map(x=>x.w.toLowerCase()));
+   let core=CURATED.map(x=>({...x,source:'curated',cefr:'B1',pos:''}));
+   // 500 entries per stage. Current curated words are included in stage 1.
+   let s1=[...core,...pickUnique(groups.low,500-core.length,used)];
+   let s2=pickUnique(groups.mid,500,used);
+   let s3=pickUnique(groups.high,500,used);
+   let s4=pickUnique(groups.top,500,used);
+   // If a higher group is short, fill from remaining dictionary by score.
+   let result=[...s1,...s2,...s3,...s4];
+   if(result.length<2000) result.push(...pickUnique(arr,2000-result.length,used));
+   BANK=result.slice(0,2000).map((x,i)=>({...x,id:i}));
+   localStorage.setItem(BANK_KEY,JSON.stringify(BANK));
+   ready(false);
+ }catch(err){
+   BANK=CURATED.map((x,i)=>({...x,id:i,source:'curated'}));
+   ready(true);
+ }
 }
-let answerCount={};
-function dailyAnswerPractice(){
-  answerCount[idx]=Math.min(3,(answerCount[idx]||0)+1);
-  const el=document.getElementById('answerStatus');
-  if(el)el.textContent=`자유 말하기 ${answerCount[idx]}/3 완료`;
+function ready(fallback){
+ document.getElementById('loadingCard').classList.add('hidden');document.getElementById('learnCard').classList.remove('hidden');
+ document.getElementById('bankCount').textContent=BANK.length;
+ if(fallback){let n=document.getElementById('sourceNotice');n.classList.remove('hidden');n.textContent='확장 사전을 불러오지 못해 현재는 기존 120개 단어로 실행 중입니다. 인터넷 연결 후 새로고침하면 2,000개 은행을 다시 구성합니다.'}
+ initDay();
 }
-
-
-let VOICES=[];
-function refreshVoices(){
-  if(!('speechSynthesis' in window)) return;
-  VOICES = window.speechSynthesis.getVoices() || [];
+function initDay(){
+ const n=dayNum(), start=((n-1)*5)%Math.max(BANK.length,5);
+ TODAY=[];for(let j=0;j<5;j++)TODAY.push(BANK[(start+j)%BANK.length]);
+ TODAY.forEach(x=>{state.seen[x.id]=dateKR()});saveState();
+ const lv=levelForDay(n);document.getElementById('levelName').textContent=lv[0];document.getElementById('levelNote').textContent=lv[1];
+ idx=0;renderWord();renderDailyReview();updateStreak();
 }
-if('speechSynthesis' in window){
-  refreshVoices();
-  window.speechSynthesis.onvoiceschanged = refreshVoices;
-}
-function speak(text){
-  if(!('speechSynthesis' in window)){
-    alert('현재 브라우저에서는 음성 재생을 지원하지 않습니다. Chrome 또는 Samsung Internet에서 열어 주세요.');
-    return;
-  }
-  const synth = window.speechSynthesis;
-  synth.cancel();
-  synth.resume();
-  refreshVoices();
-
-  const play = () => {
-    const u = new SpeechSynthesisUtterance(text);
-    const vs = VOICES.length ? VOICES : (synth.getVoices() || []);
-    const preferred =
-      vs.find(v => /en-US/i.test(v.lang) && /google|samsung|microsoft/i.test(v.name)) ||
-      vs.find(v => /en-US/i.test(v.lang)) ||
-      vs.find(v => /^en/i.test(v.lang)) ||
-      null;
-    if(preferred) u.voice = preferred;
-    u.lang = preferred?.lang || 'en-US';
-    u.rate = 0.88;
-    u.volume = 1;
-    u.pitch = 1;
-    u.onerror = () => {
-      alert('음성 재생이 차단되었습니다. 이 파일을 Chrome 또는 Samsung Internet에서 직접 열어 주세요.');
-    };
-    synth.speak(u);
-  };
-
-  // Android browsers sometimes expose voices only after a user gesture / short delay.
-  if((synth.getVoices() || []).length === 0){
-    setTimeout(() => { refreshVoices(); play(); }, 150);
-  } else {
-    play();
-  }
-}
-function star(i){state.stars=state.stars||[];state.stars=state.stars.includes(i)?state.stars.filter(x=>x!==i):[...state.stars,i];save();renderWord()}
-function manualSpeak(){speakingCount[idx]=Math.min(3,(speakingCount[idx]||0)+1);renderWord()}
-function recognition(){
- const C=window.SpeechRecognition||window.webkitSpeechRecognition;
- if(!C){manualSpeak();document.getElementById('micstatus').textContent='이 브라우저는 음성인식을 지원하지 않아 말하기 횟수로 기록했어요.';return}
- const r=new C();r.lang='en-US';r.interimResults=false;r.maxAlternatives=3;
- document.getElementById('micstatus').textContent='🎤 듣고 있어요… 영어로 말해 주세요.';
- r.onresult=e=>{let said=[...e.results[0]].map(x=>x.transcript.toLowerCase().trim()),t=TODAY[idx].w.toLowerCase();let ok=said.some(s=>s===t||s.includes(t));document.getElementById('micstatus').textContent=ok?'✅ 잘 들렸어요: '+said[0]:'다시 한번 말해보세요. 인식: '+said[0];if(ok){speakingCount[idx]=Math.min(3,(speakingCount[idx]||0)+1);renderWord()}};
- r.onerror=()=>{document.getElementById('micstatus').textContent='음성인식을 사용할 수 없어 수동 체크로 전환합니다.'};r.start()
-}
+let voices=[];function refreshVoices(){if('speechSynthesis'in window)voices=speechSynthesis.getVoices()||[]}
+if('speechSynthesis'in window){refreshVoices();speechSynthesis.onvoiceschanged=refreshVoices}
+function speak(t){if(!('speechSynthesis'in window))return alert('이 브라우저에서는 음성 재생을 지원하지 않습니다.');speechSynthesis.cancel();speechSynthesis.resume();let u=new SpeechSynthesisUtterance(t);let v=voices.find(x=>x.lang==='en-US')||voices.find(x=>/^en/.test(x.lang));if(v)u.voice=v;u.lang=v?.lang||'en-US';u.rate=.87;speechSynthesis.speak(u)}
+function star(id){state.stars=state.stars||[];state.stars=state.stars.includes(id)?state.stars.filter(x=>x!==id):[...state.stars,id];saveState();renderWord()}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function clickable(s){return String(s).split(/(\s+)/).map(t=>{if(/^\s+$/.test(t))return t;let c=t.replace(/^[^A-Za-z]+|[^A-Za-z'-]+$/g,'');if(!c)return esc(t);let p=t.indexOf(c);return esc(t.slice(0,p))+`<span class="wordtoken" onclick="openModal('${c.replace(/'/g,"\\'")}')">${esc(c)}</span>`+esc(t.slice(p+c.length))}).join('')}
 function renderWord(){
- let w=TODAY[idx], c=speakingCount[idx]||0, isStar=(state.stars||[]).includes(w._i);
- document.getElementById('dayLabel').textContent=`DAY ${dayNum()} · 오늘의 TOEIC 5분 · ${idx+1}/5`;
+ const w=TODAY[idx], starred=(state.stars||[]).includes(w.id), e=practiceSentence(w);
+ document.getElementById('dayLabel').textContent=`DAY ${dayNum()} · 신규 5단어 · ${idx+1}/5`;
  document.getElementById('bar').style.width=((idx+1)*20)+'%';
  document.getElementById('wordArea').innerHTML=`
- <div class="wordrow"><div class="word">${w.w}</div><button class="star" onclick="star(${w._i})">${isStar?'⭐':'☆'}</button></div>
- <button class="btn primary" onclick='speak(${JSON.stringify(w.w)})'>🔊 발음 듣기</button>
- <button class="btn green" onclick="recognition()">🎤 3번 말하기 · ${c}/3 ${c>=3?'🎉':''}</button>
- <div id="micstatus" class="micstatus">${c?`${c}회 완료${c>=3?' · 좋아요!':''}`:'영어로 3번 말해보세요.'}</div>
- ${revealed[idx]?`<div class="meaning"><b>🇰🇷 ${w.m}</b><div class="example"><div>${exampleClickable(w.e)}</div><button class="btn soft" onclick='speak(${JSON.stringify(w.e)})'>🔊 예문 듣기</button><div class="ko">${w.k}</div><div class="small" style="margin-top:8px">💡 모르는 영어 단어를 누르면 발음 듣기와 사전 검색을 할 수 있어요.</div></div><div class="speakbox"><b>🗣️ 매일 말하기</b><div class="small">예문을 듣고 그대로 3번 따라 말해보세요.</div><button class="btn green" onclick="sentenceSpeakPractice()">🎤 예문 3번 말하기 · ${sentenceCount[idx]||0}/3 ${(sentenceCount[idx]||0)>=3?'🎉':''}</button><div class="small" style="margin-top:10px">그 다음, 이 단어를 사용해 짧은 영어 문장을 직접 만들어 말해보세요.</div><button class="btn" onclick="dailyAnswerPractice()">💬 자유 문장 말하기</button><div id="answerStatus" class="micstatus">자유 말하기 ${answerCount[idx]||0}/3</div></div></div>`:`<button class="btn soft" onclick="revealed[${idx}]=true;renderWord()">뜻 보기 👀</button>`}
- <div class="nav"><button class="btn" ${idx===0?'disabled':''} onclick="idx--;renderWord()">← 이전</button><button class="btn primary" onclick="${idx<4?'idx++;renderWord()':'startQuiz()'}">${idx<4?'다음 →':'5문제 퀴즈 →'}</button></div>`;
+ <div class="wordrow"><div><div class="word">${esc(w.w)}</div><div class="meta">${w.ipa?esc(w.ipa)+' · ':''}${w.cefr?esc(w.cefr):''}${w.source==='curated'?' · TOEIC 핵심':''}</div></div><button class="star" onclick="star(${w.id})">${starred?'⭐':'☆'}</button></div>
+ <button class="btn primary" onclick='speak(${JSON.stringify(w.w)})'>🔊 단어 듣기</button>
+ <button class="btn green" onclick="wordSpeakCount[${idx}]=Math.min(3,(wordSpeakCount[${idx}]||0)+1);speak(${JSON.stringify(w.w)});renderWord()">🎤 단어 3번 말하기 · ${wordSpeakCount[idx]||0}/3 ${(wordSpeakCount[idx]||0)>=3?'🎉':''}</button>
+ ${revealed[idx]?`<div class="meaning"><b>🇰🇷 ${esc(w.m)}</b><div class="example"><div>${clickable(e)}</div><button class="btn soft" onclick='speak(${JSON.stringify(e)})'>🔊 ${w.e?'예문':'연습 문장'} 듣기</button><div class="ko">${esc(practiceKorean(w))}</div>${w.source!=='curated'?`<button class="btn" onclick="activeLookup=${JSON.stringify(w.w)};naverDict()">📘 사전에서 실제 예문 보기</button>`:''}</div><div class="speakbox"><b>🗣️ 매일 말하기</b><div class="small">${w.e?'예문을':'연습 문장을'} 듣고 3번 따라 말하세요.</div><button class="btn green" onclick="sentenceSpeakCount[${idx}]=Math.min(3,(sentenceSpeakCount[${idx}]||0)+1);speak(${JSON.stringify(e)});renderWord()">🎤 문장 3번 말하기 · ${sentenceSpeakCount[idx]||0}/3 ${(sentenceSpeakCount[idx]||0)>=3?'🎉':''}</button></div></div>`:`<button class="btn soft" onclick="revealed[${idx}]=true;renderWord()">뜻 보기 👀</button>`}
+ <div class="nav"><button class="btn" ${idx===0?'disabled':''} onclick="idx--;renderWord()">← 이전</button><button class="btn primary" onclick="${idx<4?'idx++;renderWord()':'startQuiz()'}">${idx<4?'다음 →':'퀴즈 →'}</button></div>`;
 }
+function reviewIds(){
+ let ids=[...new Set([...(state.wrong||[]),...(state.stars||[])])].filter(x=>BANK[x]);
+ // Add spaced reviews from 1,3,7,14 days ago.
+ const today=new Date(dateKR()+'T00:00:00Z');
+ Object.entries(state.seen||{}).forEach(([id,ds])=>{let d=new Date(ds+'T00:00:00Z');let gap=Math.round((today-d)/86400000);if([1,3,7,14].includes(gap)&&BANK[id])ids.push(Number(id))});
+ return [...new Set(ids)].filter(id=>!TODAY.some(x=>x.id===id)).slice(0,5);
+}
+function renderDailyReview(){let ids=reviewIds(),box=document.getElementById('dailyReviewCard');if(!ids.length){box.classList.add('hidden');return}box.classList.remove('hidden');box.innerHTML=`<div class="reviewtitle">🔁 오늘의 자동 복습 ${ids.length}개</div><div class="small">오답·⭐·1/3/7/14일 전 단어를 우선 복습합니다.</div>${ids.map(id=>`<div class="reviewItem"><div><b>${esc(BANK[id].w)}</b><div class="small">${esc(BANK[id].m)}</div></div><button class="star" onclick='speak(${JSON.stringify(BANK[id].w)})'>🔊</button></div>`).join('')}`}
 function shuffle(a,seed){let r=seeded(seed),x=[...a];for(let i=x.length-1;i>0;i--){let j=Math.floor(r()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x}
-function startQuiz(){quizIndex=0;quizScore=0;quizWrong=[];document.getElementById('learnCard').classList.add('hidden');document.getElementById('quizCard').classList.remove('hidden');renderQuiz()}
-function renderQuiz(){
- let box=document.getElementById('quizCard');
- if(quizIndex>=5){box.innerHTML=`<h2>🎉 오늘 학습 완료</h2><p style="font-size:28px;font-weight:900">${quizScore} / 5</p><p>${quizWrong.length?'틀린 단어는 자동으로 복습 단어장에 저장했어요.':'모두 맞았어요! 훌륭합니다.'}</p><button class="btn primary" onclick="finishDay()">학습 완료 ✓</button>`;return}
- let w=TODAY[quizIndex], others=WORDS.filter((_,i)=>i!==w._i).map(x=>x.m), opts=shuffle([w.m,...shuffle(others,dayNum()*97+quizIndex).slice(0,3)],dayNum()*113+quizIndex);
- box.innerHTML=`<div class="day">QUIZ ${quizIndex+1}/5</div><div class="quizq" style="margin-top:18px">“${w.w}”의 뜻은?</div><div id="choices">${opts.map(o=>`<button class="choice" onclick='answer(${JSON.stringify(o)},this)'>${o}</button>`).join('')}</div>`;
-}
-function answer(o,el){let w=TODAY[quizIndex],ok=o===w.m;document.querySelectorAll('.choice').forEach(b=>b.disabled=true);el.classList.add(ok?'ok':'bad');if(ok)quizScore++;else{quizWrong.push(w._i);state.wrong=[...new Set([...(state.wrong||[]),w._i])];save()}setTimeout(()=>{quizIndex++;renderQuiz()},650)}
-function finishDay(){let d=seoulDate();state.done=[...new Set([...(state.done||[]),d])];save();updateStreak();document.getElementById('quizCard').innerHTML=`<h2>✅ ${d} 학습 완료</h2><p>내일 접속하면 새로운 오늘의 5단어가 자동으로 나옵니다.</p><button class="btn" onclick="idx=0;document.getElementById('quizCard').classList.add('hidden');document.getElementById('learnCard').classList.remove('hidden');renderWord()">오늘 단어 다시 보기</button>`}
-function streak(){let s=new Set(state.done||[]),d=new Date(seoulDate()+'T00:00:00Z'),n=0;if(!s.has(seoulDate()))d.setUTCDate(d.getUTCDate()-1);while(s.has(d.toISOString().slice(0,10))){n++;d.setUTCDate(d.getUTCDate()-1)}return n}
+function startQuiz(){quizIndex=0;quizScore=0;document.getElementById('learnCard').classList.add('hidden');document.getElementById('dailyReviewCard').classList.add('hidden');document.getElementById('quizCard').classList.remove('hidden');renderQuiz()}
+function renderQuiz(){let b=document.getElementById('quizCard');if(quizIndex>=5){b.innerHTML=`<h2>🎉 ${quizScore}/5</h2><p>틀린 단어는 자동 복습 대상에 저장됩니다.</p><button class="btn primary" onclick="finishDay()">학습 완료 ✓</button>`;return}let w=TODAY[quizIndex],other=BANK.filter(x=>x.id!==w.id).map(x=>x.m),opts=shuffle([w.m,...shuffle(other,dayNum()*71+quizIndex).slice(0,3)],dayNum()*97+quizIndex);b.innerHTML=`<div class="day">QUIZ ${quizIndex+1}/5</div><h3>“${esc(w.w)}”의 뜻은?</h3>${opts.map(o=>`<button class="choice" onclick='answer(${JSON.stringify(o)},this)'>${esc(o)}</button>`).join('')}`}
+function answer(o,el){let w=TODAY[quizIndex],ok=o===w.m;document.querySelectorAll('.choice').forEach(x=>x.disabled=true);el.classList.add(ok?'ok':'bad');if(ok)quizScore++;else{state.wrong=[...new Set([...(state.wrong||[]),w.id])];saveState()}setTimeout(()=>{quizIndex++;renderQuiz()},600)}
+function finishDay(){state.done=[...new Set([...(state.done||[]),dateKR()])];saveState();updateStreak();document.getElementById('quizCard').innerHTML=`<h2>✅ 오늘 학습 완료</h2><p>내일은 다음 5개 신규 단어와 자동 복습이 준비됩니다.</p><button class="btn" onclick="location.reload()">오늘 단어 다시 보기</button>`}
+function streak(){let s=new Set(state.done||[]),d=new Date(dateKR()+'T00:00:00Z'),n=0;if(!s.has(dateKR()))d.setUTCDate(d.getUTCDate()-1);while(s.has(d.toISOString().slice(0,10))){n++;d.setUTCDate(d.getUTCDate()-1)}return n}
 function updateStreak(){document.getElementById('streak').textContent='🔥 '+streak()+'일'}
-function renderReview(){let ids=[...new Set([...(state.wrong||[]),...(state.stars||[])])];let el=document.getElementById('reviewList');if(!ids.length){el.innerHTML='<p class="small">아직 복습 단어가 없습니다. ⭐를 누르거나 퀴즈에서 틀린 단어가 여기에 저장됩니다.</p>';return}el.innerHTML=ids.map(i=>`<div class="reviewItem"><div style="flex:1"><b>${WORDS[i].w}</b><div class="small">${WORDS[i].m}</div><div class="small" style="margin-top:4px">${exampleClickable(WORDS[i].e)}</div></div><button class="star" onclick='speak(${JSON.stringify(WORDS[i].w)})'>🔊</button></div>`).join('')}
-function renderHistory(){document.getElementById('historySummary').innerHTML=`<p><b>총 학습일</b> ${(state.done||[]).length}일 · <b>연속</b> ${streak()}일</p>`;let base=new Date(seoulDate()+'T00:00:00Z'),done=new Set(state.done||[]),arr=[];for(let i=6;i>=0;i--){let d=new Date(base);d.setUTCDate(d.getUTCDate()-i);let ds=d.toISOString().slice(0,10);arr.push(`<div class="d ${done.has(ds)?'done':''}">${d.getUTCMonth()+1}/${d.getUTCDate()}<br>${done.has(ds)?'✓':'·'}</div>`)}document.getElementById('history7').innerHTML=arr.join('')}
+function renderReview(){let ids=[...new Set([...(state.wrong||[]),...(state.stars||[])])].filter(x=>BANK[x]);let e=document.getElementById('reviewList');e.innerHTML=ids.length?ids.map(id=>`<div class="reviewItem"><div><b>${esc(BANK[id].w)}</b><div class="small">${esc(BANK[id].m)}</div></div><button class="star" onclick='speak(${JSON.stringify(BANK[id].w)})'>🔊</button></div>`).join(''):'<p class="small">아직 저장된 복습 단어가 없습니다.</p>'}
+function renderHistory(){document.getElementById('historySummary').innerHTML=`<p><b>총 학습일</b> ${(state.done||[]).length}일 · <b>연속</b> ${streak()}일 · <b>학습한 단어</b> ${Object.keys(state.seen||{}).length}개</p>`;let base=new Date(dateKR()+'T00:00:00Z'),done=new Set(state.done||[]),a=[];for(let i=6;i>=0;i--){let d=new Date(base);d.setUTCDate(d.getUTCDate()-i);let s=d.toISOString().slice(0,10);a.push(`<div class="d ${done.has(s)?'done':''}">${d.getUTCMonth()+1}/${d.getUTCDate()}<br>${done.has(s)?'✓':'·'}</div>`)}document.getElementById('history7').innerHTML=a.join('')}
+function openModal(w){activeLookup=w;document.getElementById('modalWord').textContent=w;document.getElementById('wordModal').classList.remove('hidden')}
+function closeModal(){document.getElementById('wordModal').classList.add('hidden')}
+function naverDict(){if(activeLookup)window.open('https://en.dict.naver.com/#/search?query='+encodeURIComponent(activeLookup),'_blank','noopener')}
+function googleSearch(){if(activeLookup)window.open('https://www.google.com/search?q='+encodeURIComponent(activeLookup+' meaning pronunciation'),'_blank','noopener')}
 document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');['learn','review','history'].forEach(p=>document.getElementById(p+'Page').classList.toggle('hidden',p!==b.dataset.page));if(b.dataset.page==='review')renderReview();if(b.dataset.page==='history')renderHistory()});
-updateStreak();renderWord();
+buildBank();
 </script>
 </body></html>
